@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- My CSS -->
+    <style>
+      .api-wa {
+        position: fixed;  
+        bottom: 20px;
+        right: 20px;
+        height: 65px;
+        z-index: 10;
+      }
+
+      .fixed-top {
+          background-color: #fff;
+      }
+
+      .nav-link {
+        margin-right: 25px;
+        }
+
+      .web-banner {
+        background-image: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.5)), url(img/heroimage_800x450.jpg);
+        background-size: cover;
+        height: 100vh;
+        }
+
+      .display-4 {
+        margin-top: 40vh;
+        font-weight: 500;
+        font-size: 24pt;
+        }
+
+      .card {
+        min-height: 300px;
+        transition: .2s
+        }
+
+      .card:hover {
+        box-shadow: 0 0 3px 1px rgba(0,0,0,.5);
+        }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+        }
+
+      .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        color: #fff;
+        border-radius: .75rem;
+        }
+
+      .contact-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        font-size: 2rem;
+        color: #fff;
+        border-radius: 5px;
+        margin-right: 10px;
+        }
+
+      a {
+        text-decoration: none;
+      }
+
+      .icon-link > .bi {
+        margin-top: .125rem;
+        margin-left: .125rem;
+        transition: transform .25s ease-in-out;
+        fill: currentColor;
+        }
+
+      .icon-link:hover > .bi {
+        transform: translate(.25rem);
+        }
+
+      .about {
+        background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(img/about.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        }
+
+      /* Tablet Version */
+      @media (min-width: 768px) {
+        .fixed-top {
+            position: absolute; 
+            width: 100%;
+            background-color: transparent; 
+        }
+
+        nav.shadow-sm{box-shadow:0 0 rgba(0,0,0,1)!important}
+
+        .sticky-nav {
+          position: absolute;
+          width: 100%;
+          }
+
+        .navbar-brand, .nav-link {
+          color: #fff !important;
+          }
+
+        .display-4 {
+          font-size: 30pt;
+          }
+        }
+      
+      /* Desktop Version */
+      @media (min-width: 992px) {
+        .navbar {
+          margin-top: 5px;
+          }
+        }
+
+    </style>
+
+    <title>BLUD | Rekayasa Perangkat Lunak</title>
+  </head>
+  <body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="code-slash" viewBox="0 0 16 16">
+        <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13z"/>
+        <path fill-rule="evenodd" d="M4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z"/>
+      </symbol>
+      <symbol id="vector-pen" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z"/>
+        <path fill-rule="evenodd" d="M2.832 13.228 8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z"/>
+      </symbol>
+      <symbol id="window" viewBox="0 0 16 16">
+        <path d="M2.5 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm1 .5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2zm13 2v2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zM2 14a1 1 0 0 1-1-1V6h14v7a1 1 0 0 1-1 1H2z"/>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+      </symbol>
+      <symbol id="envelope" viewBox="0 0 16 16">
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+      </symbol>
+      <symbol id="phone" viewBox="0 0 16 16">
+        <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+      </symbol>
+      <symbol id="geo-alt" viewBox="0 0 16 16">
+        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      </symbol>
+      </svg>
+
+    <div class="whatsapp">
+      <a href="https://api.whatsapp.com/send?phone=628128908162&text=Halo,%20saya%20ingin%20bertanya%20mengenai" target="blank">
+        <img class="api-wa" src="img/WhatsApp.svg.webp">
+      </a>
+    </div>  
+    
+    <!-- Start Navbar -->
+
+      <div class="sticky-nav container-fluid">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top shadow-sm">
+          <div class="container">
+            <a class="navbar-brand fw-bold" href="#">BLUD REEPAL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#services">Layanan</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#about">Tentang Kami</a>
+                </li>
+              </ul>
+              <a class="btn btn-outline-primary" role="button" href="#contact">Hubungi Kami</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      
+    <!-- End Navbar -->
+
+
+    <!-- Start Jumbotron -->
+
+      <div class="container-fluid web-banner">
+        <div class="container"> 
+          <div class="row">
+            <div class="col-md-10 col-lg-9 mt-5 text-white">
+              <h1 class="display-4">BLUD<br>Rekayasa Perangkat Lunak</h1>
+              <p class="fs-6">Menyediakan berbagai layanan jasa pemrograman website, aplikasi desktop dan juga desain grafis.</p>
+              <a class="btn btn-primary" role="button" href="#">Lihat Projek</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- End Jumbotron -->
+
+
+    <!-- Start Sec. Services -->
+
+      <div class="container-fluid">
+        <div class="container pt-5 pb-5" id="services">
+          <div class="row text-center">
+            <div class="col-sm-12">
+              <h2 class="fw-bold pb-5">Layanan</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="card text-center mb-4">
+                <div class="card-body">
+                  <div class="feature-icon bg-primary bg-gradient">
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#code-slash"/></svg>
+                  </div>
+                  <h5 class="card-title">Desain Web</h5>
+                  <p class="card-text">Membuat berbagai macam web statis ataupun dinamis dengan fitur - fitur yang disesuaikan dengan kebutuhan klien.</p>
+                  <br>
+                  <a href="#" class="icon-link">Hubungi Sekarang
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card text-center mb-4">
+                <div class="card-body">
+                  <div class="feature-icon bg-primary bg-gradient">
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#window"/></svg>
+                  </div>
+                  <h5 class="card-title">Aplikasi Desktop</h5>
+                  <p class="card-text">Membuat berbagai aplikasi desktop dengan memakai bahasa pemrograman java. <br><br></p>
+                  <br>
+                  <a href="#" class="icon-link">Hubungi Sekarang
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="card text-center mb-4">
+                <div class="card-body">
+                  <div class="feature-icon bg-primary bg-gradient">
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#vector-pen"/></svg>
+                  </div>
+                  <h5 class="card-title">Desain Grafis</h5>
+                  <p class="card-text">Menjual berbagai macam produk desain seperti, kaos, <i>mug,</i> stiker dan lain sebagainya. <br><br></p>
+                  <br>
+                  <a href="#" class="icon-link">Hubungi Sekarang
+                    <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- End Sec. Services -->
+
+
+    <!-- Start Sec. About Us -->
+
+      <div class="container-fluid about">
+        <div class="container pt-5 pb-5" id="about">
+          <div class="row text-center text-white">
+            <div class="col-sm-12">
+              <h2 class="fw-bold pb-5">Tentang Kami</h2>
+              <p>BLUD Reepal merupakan sebuah usaha dari jurusan Pemrograman Perangkat Lunak dan Gim dari SMK Negeri 1 Karawang. Tujuan dibuatnya BLUD Reepal adalah untuk meningkatkan produktivitas murid - murid jurusan PPLG SMKN 1 Karawang dan memiliki nilai jual. Selain itu, BLUD Reepal ini juga diharapkan agar murid - murid dari jurusan PPLG dapat mengenal dan siap terjun langsung di Dunia Industri / Dunia Kerja.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- End Sec. About Us -->
+
+
+    <!-- Start Sec. Contact -->
+
+      <div class="container-fluid">
+        <div class="container pt-5 pb-5" id="contact">
+          <div class="row text-center">
+            <div class="col-sm-12">
+              <h2 class="fw-bold pb-5">Kontak Kami</h2>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-md-4">
+              <h3 class="fs-5">
+                <div class="contact-icon bg-primary bg-gradient">
+                  <svg class="bi" width="15px" height="15px"><use xlink:href="#envelope"/></svg>
+                  </div>Email</h3>
+              <p class="mb-4"><a class="text-muted" href="mailto:bludreepal@gmail.com">bludreepal@gmail.com</a></p>
+              <h3 class="fs-5">
+                <div class="contact-icon bg-primary bg-gradient">
+                  <svg class="bi" width="15px" height="15px"><use xlink:href="#phone"/></svg>
+                  </div>Telepon</h3>
+              <p class="text-muted mb-4">+62 813-8103-5591</p>
+              <h3 class="fs-5">
+              <div class="contact-icon bg-primary bg-gradient">
+                  <svg class="bi" width="15px" height="15px"><use xlink:href="#geo-alt"/></svg>
+                  </div>Lokasi</h3>
+              <p class="text-muted mb-4">SMK Negeri 1 Karawang<br>Jl. Pangkal Perjuangan, Bypass - Karawang</p>
+            </div>
+            <div class="col-md-6">
+              <div class="alert alert-primary alert-dismissible fade show d-none succes-alert" role="alert">
+                <strong>Terima kasih!</strong> Pesan anda telah kami terima.
+                <button type="button" class="btn-close closed-bs-alert" data-bs-dismiss="alert" aria-label="Close"></button> 
+              </div>
+              <div class="alert alert-primary alert-dismissible fade show d-none failed-alert" role="alert">
+                <strong>Mohon maaf!</strong> Pesan anda gagal terkirim.
+                <button type="button" class="btn-close closed-bs-alert" data-bs-dismiss="alert" aria-label="Close"></button> 
+              </div>
+              <div class="contact-form">
+                <form name="blud-contact-form">
+                  <div class="row">
+                    <div class="col-lg-12 mb-4">
+                      <input type="text" name="nama" placeholder="Nama Anda" class="form-control form-control-lg fs-6" required>
+                    </div>
+                    <div class="col-lg-12 mb-4">
+                      <input type="email" name="email" placeholder="Email Anda" class="form-control form-control-lg fs-6" required>
+                    </div>
+                    <div class="col-lg-12 mb-4">
+                      <input type="text" name="subjek" placeholder="Subjek" class="form-control form-control-lg fs-6" required>
+                    </div>
+                    <div class="col-lg-12 mb-4">
+                      <textarea name="pesan" placeholder="Pesan" class="form-control form-control-lg fs-6" required></textarea>
+                    </div>
+                    <div class="col-lg-12 mb-4">
+                      <button class="btn btn-primary btn-kirim" name="submit">Kirim Pesan</button>
+                      <button class="btn btn-primary btn-load d-none" type="button" disabled>
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Dikirim...
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- End Sec. Contact -->
+
+
+    <!-- Start Sec. Footer -->
+
+    <footer class="container-fluid border-top" id="footer">
+      <div class="container">
+        <p class="text-center py-3 mb-0">2021 &copy REEPAL SMK Negeri 1 Karawang</p>
+      </div>
+    </footer>
+
+    <!-- End Sec. Footer -->
+
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Contact Form to Google Sheets -->
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzbQLT13zG9Z_KwdrbX7OvityPfc-qSrdgad3aDyJkRCg3d6iOs7Iid9MxKuCq1uxeQHw/exec'
+      const form = document.forms['blud-contact-form']
+      const kirim = document.querySelector('.btn-kirim');
+      const load = document.querySelector('.btn-load');
+      const success = document.querySelector('.succes-alert');
+      const failed = document.querySelector('.failed-alert');
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        //Saat Tombol Submit di Klik
+        //Tampilkan btn load, hilangkan btn kirim
+        load.classList.toggle('d-none');
+        kirim.classList.toggle('d-none');
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            //Tampilkan btn kirim, hilangkan btn load
+            load.classList.toggle('d-none');
+            kirim.classList.toggle('d-none');
+            //Tampilkan notif
+            success.classList.toggle('d-none');
+            //Reset form
+            form.reset();
+            console.log('Success!', response)
+          })
+          .catch(error => {
+            //Tampilkan btn kirim, hilangkan btn load
+            load.classList.toggle('d-none');
+            kirim.classList.toggle('d-none');
+            //Tampilkan notif
+            failed.classList.toggle('d-none');
+            //Reset form
+            form.reset();
+            console.error('Error!', error.message)
+          })
+      })
+    </script>
+
+  </body>
+</html>
